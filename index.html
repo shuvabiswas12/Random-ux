@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="fontawesome/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>RandomUX</title>
+</head>
+<body>
+
+
+<!-- clock bar starts -->
+
+<section id="clock-bar" class="navbar-fixed">
+  <nav class="clock-bar">
+    <ul class="right hide-on-med-and-down text-accent-4">
+      <li><div id="MyClockDisplay" class="clock" onload="showTime()"></div></li>
+
+      <li class="secret-input-field" id="secret-input"><input placeholder="Testing" id="my-secret-number" type="number"></li>
+      <li class="secret-input-field" id="ok-btn"><button class="btn btn-small"><i class="fas fa-check-circle"></i></button></li>
+      <li class="secret-input-field" id="cancel-btn"><button class="btn btn-small"><i class="fas fa-minus-circle"></i></button></li>
+
+    </ul>
+  </nav>
+</section>
+
+<!-- clock bar ends -->
+
+
+<!-- navbar starts -->
+
+<section id="main-nav" class="navbar-fixed">
+  <nav>
+
+    <ul class="back-btn">
+<!--      <li><img src="icons/arrow-left.svg" alt="..." id="back-btn"></li>-->
+      <li><svg id="back-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg></li>
+    </ul>
+
+    <div class="nav-wrapper">
+      <p href="#" class="brand-name">Number</p>
+    </div>
+
+    <ul class="right music-btn">
+      <li>
+        <svg id="music-on" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M12 3V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17S7.79 21 10 21 14 19.21 14 17V7H18V3H12Z" /></svg>
+        <svg id="music-off" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M4.27 3L3 4.27L12 13.27V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17S7.79 21 10 21 14 19.21 14 17V15.27L19.73 21L21 19.73L4.27 3M14 7H18V3H12V8.18L14 10.18Z" /></svg>
+      </li>
+    </ul>
+
+  </nav>
+</section>
+
+
+<!-- navbar ends -->
+
+
+<!-- content section starts -->
+
+
+<section id="content-section">
+  <div class="row static-content--part">
+    <div class="col s12 m6 offset-m3">
+      <div class="card blue-grey white center-align">
+        <div class="card-content">
+          <span class="card-title"><h6>FROM</h6></span>
+          <input type="number" id="first-number" class="number-one" value="1">
+
+          <span class="card-title"><h6>TO</h6></span>
+          <input type="number" id="last-number" class="number-two" value="10">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row no-repeat_content---part animate__backInUp" id="no-repeat--div">
+    <div class="col s10 m4 offset-m4 offset-s1">
+      <div class="card">
+        <div class="card-content center-align">
+
+
+          <div class="right-align menu-btn">
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger right-align' data-target='dropdown1'><i
+                    class="fas fa-ellipsis-v"></i></a>
+
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+              <li id="reset-btn" class="center-align"><a>Reset</a></li>
+              <li id="disable-btn" class="center-align"><a>Disable</a></li>
+            </ul>
+          </div>
+
+          <p class="no-repeat--text">No repeat</p>
+          <h5 class="bottom-margin"><strong id="latest-count"></strong> / <strong id="max-count-upto"></strong></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row no-repeat_content---part hide" id="delay-time--div">
+    <div class="col s10 m4 offset-m4 offset-s1">
+      <div class="card center-align">
+        <div class="card-content">
+
+          <div class="right-align menu-btn">
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger right-align' data-target='dropdown2'><i
+                    class="fas fa-ellipsis-v"></i></a>
+
+            <!-- Dropdown Structure -->
+            <ul id='dropdown2' class='dropdown-content'>
+              <li id="duration-disable-btn" class="center-align"><a>Disable</a></li>
+            </ul>
+          </div>
+
+          <p class="no-repeat--text"><strong>Delay time (sec)</strong></p>
+          <input type="number" id="delay-duration" class="number-two delay-duration" value="3">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row no-repeat_content---part">
+    <div class="col s10 m4 offset-m4 offset-s1">
+      <div class="center-align settings-btn">
+        <button href="#modal1" class="btn-flat settings-btn modal-trigger waves-effect"><i
+                class="fas fa-cog"></i></button>
+      </div>
+      <div class="card-content center-align">
+        <a id="random-num--generator" href="#modal2"
+           class="btn-floating modal-trigger halfway-fab waves-effect waves-light"><i
+                class="fas fa-sync"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Settings Modal Starts -->
+
+  <div class="row settings-modal">
+    <div class="col s10 m1 offset-m4 offset-s1">
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h5 class="left-align">Parameters</h5>
+
+
+          <div class="row">
+            <form class="col s12">
+
+              <div class="row modal-options--margin">
+
+                <div class="col s9">
+                  <lavel class="modal-option__text--size">No repeat</lavel>
+                </div>
+
+                <div class="col s3">
+
+                  <!-- Switch starts -->
+                  <div class="switch">
+                    <label>
+                      <input type="checkbox" id="no-repeat--switch">
+                      <span class="lever"></span>
+                    </label>
+                  </div>
+                  <!-- Switch starts -->
+
+                </div>
+              </div>
+
+              <div class="row modal-options--margin">
+                <div class="col s9">
+                  <lavel class="modal-option__text--size">Delay</lavel>
+                </div>
+
+                <div class="col s3">
+
+                  <!-- Switch starts -->
+                  <div class="switch">
+                    <label>
+                      <input type="checkbox" id="delay-time--switch">
+                      <span class="lever"></span>
+                    </label>
+                  </div>
+                  <!-- Switch ends -->
+
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a id="apply-button"
+             class="modal-close waves-effect waves-green btn-flat apply-btn">Apply</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal Ends -->
+
+
+  <!-- Random number output Modal Starts -->
+
+
+  <div class="random-number--output---modal">
+    <div id="modal2" class="modal">
+      <div class="box-container" id="modal-container">
+        <div class="box" id="box">
+          <div class="box-front"><h1 class="" id="counter-value-front"></h1></div>
+          <div class="box-back" id="box-back"><p id="counter-value">4</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Random number output Modal Ends -->
+
+</section>
+
+<!-- content section ends -->
+
+
+
+
+<!-- toast starts -->
+
+<div id="snackbar">All variant are generated!</div>
+
+<!-- toast ends -->
+
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="fontawesome/js/all.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/clock.js"></script>
+
+</body>
+</html>
