@@ -363,11 +363,6 @@ nav ul li:nth-child(3) {
   line-height: 39px !important;
 }
 
-@media only screen and (max-width: 992px) {
-  .clock {
-    font-size: 12px;
-  }
-}
 /* clock bar ends */
 
 /* music starts */
@@ -469,3 +464,9 @@ nav ul li:nth-child(3) {
 }
 
 /* toast ends */
+
+@media only screen and (max-width: 411px) {
+  .clock {
+    font-size: 7px;
+  }
+}
